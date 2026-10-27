@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications | John Kendrick Alexander Cabunilas</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<<nav class="top-nav">
+  <a href="index.html" class="nav-brand">
+    <div class="brand-circle">JK</div>
+    <span class="brand-name">John Kendrick Cabunilas</span>
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <i class="fas fa-bars"></i>
+  </button>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Me</a></li>
+    <li><a href="techstack.html">Tech Stack</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+  <div class="container-custom">
+    <h1 class="page-title">Certifications</h1>
+
+    <div class="cert-row">
+      
+      <div class="cert-item" onclick="openCertModal('python')">
+        <div class="cert-badge-img">
+          <img src="python1.png" alt="Python Essentials 1" onerror="this.style.display='none'">
+        </div>
+        <a href="https://www.credly.com/badges/38293d50-a3e1-48ef-a6b7-41daf8eee8b7/public_url" target="_blank" class="cert-name">Python Essentials</a>
+      </div>
+
+      <div class="cert-item" onclick="openCertModal('networking')">
+        <div class="cert-badge-img">
+          <img src="net1.png" alt="Networking Basics" onerror="this.style.display='none'">
+        </div>
+        <a href="https://www.credly.com/badges/236fccca-de28-4a36-acf3-ca12f4d3851e/public_url" target="_blank" class="cert-name">Networking Basics</a>
+      </div>
+
+      <div class="cert-item" onclick="openCertModal('word')">
+        <div class="cert-badge-img">
+          <img src="word1.png" alt="Microsoft Word Specialist" onerror="this.style.display='none'">
+        </div>
+        <a href="https://www.credly.com/badges/00181945-af5d-44a3-95a6-f6ab2c98da00/public_url" target="_blank" class="cert-name">Microsoft Word Specialist</a>
+      </div>
+
+      <div class="cert-item" onclick="openCertModal('powerpoint')">
+        <div class="cert-badge-img">
+          <img src="ptt1.png" alt="Microsoft PowerPoint Specialist" onerror="this.style.display='none'">
+        </div>
+        <a href="https://www.credly.com/badges/e0878de7-cccf-4a02-9dbe-917e43a133a2/public_url" target="_blank" class="cert-name">Microsoft PowerPoint Specialist</a>
+      </div>
+
+      <div class="cert-item" onclick="openCertModal('c-essentials')">
+        <div class="cert-badge-img">
+          <img src="c1.png" alt="C Essentials 1" onerror="this.style.display='none'">
+        </div>
+        <a href="https://www.credly.com/badges/02460c1f-8ef3-492a-a2bb-ee4da765244b/public_url" target="_blank" class="cert-name">C Essentials</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Certification Modal -->
+  <div class="cert-modal" id="certModal">
+    <div class="cert-modal-content">
+      <button class="cert-modal-close" onclick="closeCertModal()">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="cert-modal-body">
+        <img id="modalCredlyImg" src="" alt="Certification Details" class="credly-screenshot">
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const certData = {
+      'python': { credlyImg: 'python.jpg' },
+      'networking': { credlyImg: 'networking.jpg' },
+      'word': { credlyImg: 'word.jpg' },
+      'powerpoint': { credlyImg: 'ppt.jpg' },
+      'c-essentials': { credlyImg: 'C.jpg' }
+    };
+
+    function openCertModal(certId) {
+      const cert = certData[certId];
+      if (!cert) return;
+      
+      document.getElementById('modalCredlyImg').src = cert.credlyImg;
+      document.getElementById('modalCredlyImg').alt = certId + ' certification';
+      
+      document.getElementById('certModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+      document.getElementById('certModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('certModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeCertModal();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeCertModal();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const links = document.querySelectorAll('.nav-menu a');
+      links.forEach(link => {
+        link.classList.remove('active');
+        const linkPage = link.getAttribute('href').split('/').pop();
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    function toggleMenu() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
