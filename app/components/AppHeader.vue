@@ -3,18 +3,20 @@ import { Menu, X } from '@lucide/vue'
 
 const route = useRoute()
 const menuOpen = ref(false)
+defineProps<{ scrollProgress: number; activeSection: string }>()
 
 const links = [
-  { label: 'Home', to: '/' },
-  { label: 'About Me', to: '/about' },
-  { label: 'Tech Stack', to: '/techstack' },
-  { label: 'Certifications', to: '/certifications' },
-  { label: 'Contact', to: '/contact' }
+  { label: 'Home', to: '/#home', hash: '#home' },
+  { label: 'About Me', to: '/#about', hash: '#about' },
+  { label: 'Tech Stack', to: '/#stack', hash: '#stack' },
+  { label: 'Certifications', to: '/#certifications', hash: '#certifications' },
+  { label: 'Contact', to: '/#contact', hash: '#contact' }
 ]
 
-watch(() => route.path, () => {
+watch(() => route.fullPath, () => {
   menuOpen.value = false
 })
+
 </script>
 
 <template>
@@ -31,8 +33,8 @@ watch(() => route.path, () => {
           :key="link.to"
           :to="link.to"
           class="rounded-lg px-3 py-2 text-sm font-medium text-base-content/70 transition-colors hover:bg-base-300 hover:text-primary"
-          :class="{ 'bg-base-300 text-primary': route.path === link.to }"
-          :aria-current="route.path === link.to ? 'page' : undefined"
+          :class="{ 'bg-base-300 text-primary': activeSection === link.hash }"
+          :aria-current="activeSection === link.hash ? 'location' : undefined"
         >
           {{ link.label }}
         </NuxtLink>
@@ -62,11 +64,25 @@ watch(() => route.path, () => {
         :key="link.to"
         :to="link.to"
         class="block rounded-lg px-4 py-3 text-center text-sm font-medium text-base-content/80 hover:bg-base-300 hover:text-primary"
-        :class="{ 'bg-base-300 text-primary': route.path === link.to }"
-        :aria-current="route.path === link.to ? 'page' : undefined"
+        :class="{ 'bg-base-300 text-primary': activeSection === link.hash }"
+        :aria-current="activeSection === link.hash ? 'location' : undefined"
       >
         {{ link.label }}
       </NuxtLink>
     </nav>
+
+    <div
+      class="absolute inset-x-0 bottom-0 h-0.5 bg-base-300"
+      role="progressbar"
+      aria-label="Page scroll progress"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      :aria-valuenow="scrollProgress"
+    >
+      <div
+        class="h-full origin-left bg-primary transition-transform duration-100"
+        :style="{ transform: `scaleX(${scrollProgress / 100})` }"
+      />
+    </div>
   </header>
 </template>

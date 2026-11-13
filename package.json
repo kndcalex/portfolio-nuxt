@@ -10,9 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^7.3.1",
     "@lucide/vue": "^1.72.0",
-    "echarts": "^6.0.0",
     "nuxt": "^4.5.2",
+    "simple-icons": "^16.37.0",
     "vue": "^3.5.42",
     "vue-router": "^5.3.1"
   },

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { Code2, MoveUp, UsersRound } from '@lucide/vue'
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { siGithub } from 'simple-icons'
+import { MoveUp } from '@lucide/vue'
 
 const year = new Date().getFullYear()
 </script>
@@ -15,7 +17,7 @@ const year = new Date().getFullYear()
         class="link-hover inline-flex items-center gap-2"
         aria-label="LinkedIn profile (opens in a new tab)"
       >
-        <UsersRound :size="17" aria-hidden="true" /> LinkedIn
+        <BrandIcon :icon="faLinkedinIn" :size="17" /> LinkedIn
       </a>
       <a
         href="https://github.com/kndcalex"
@@ -24,7 +26,7 @@ const year = new Date().getFullYear()
         class="link-hover inline-flex items-center gap-2"
         aria-label="GitHub profile (opens in a new tab)"
       >
-        <Code2 :size="17" aria-hidden="true" /> GitHub
+        <BrandIcon :icon="siGithub" :size="17" color="#f0f0f0" /> GitHub
       </a>
       <a href="#main-content" class="btn btn-ghost btn-circle btn-sm" aria-label="Back to top">
         <MoveUp :size="16" aria-hidden="true" />
