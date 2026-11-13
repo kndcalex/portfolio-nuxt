@@ -1,75 +1,36 @@
-# Nuxt Minimal Starter
+# John Kendrick Cabunilas Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Nuxt 4 portfolio built with Vue, Tailwind CSS, DaisyUI, Lucide icons, and Apache ECharts.
 
 ## Setup
 
-Make sure to install dependencies:
+Install dependencies and start the development server:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
+
+## Pages
+
+- `/` — Home
+- `/about` — About
+- `/techstack` — Technology stack and category chart
+- `/certifications` — Certification badges and credential details
+- `/contact` — Social profiles
+
+Unknown routes show the custom 404 page.
+
+## Project structure
+
+- `app/pages/` — Nuxt routes with page-specific SEO metadata
+- `app/components/` — Shared navigation, sidebar, footer, cards, and chart
+- `app/assets/css/main.css` — Tailwind, DaisyUI theme, and global styles
+- `public/Image/` — Static portfolio and certification images
 
 ## Production
 
-Build the application for production:
-
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

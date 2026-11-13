@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "portfolio";
+  default: true;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #0a0a0a;
+  --color-base-200: #111111;
+  --color-base-300: #1f1f1f;
+  --color-base-content: #e0e0e0;
+  --color-primary: #ff6b35;
+  --color-primary-content: #0a0a0a;
+  --color-secondary: #ff8c5a;
+  --color-accent: #ff8c5a;
+  --color-neutral: #1f1f1f;
+  --color-neutral-content: #e0e0e0;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #0a0a0a;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page-title {
+  color: #ff6b35;
+}
+
+.content-card {
+  border: 1px solid #1f1f1f;
+  background: #111111;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.content-card:hover {
+  border-color: rgb(255 107 53 / 55%);
+  transform: translateY(-2px);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 140ms ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
