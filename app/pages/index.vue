@@ -8,10 +8,8 @@ import {
 } from 'simple-icons'
 import {
   ArrowRight,
-  Award,
   BriefcaseBusiness,
   Code2,
-  Compass,
   ExternalLink,
   GraduationCap,
   Target,
@@ -127,10 +125,6 @@ onBeforeUnmount(() => {
           </p>
         </ContentCard>
 
-        <div class="alert border border-primary/20 bg-primary/5 text-base-content">
-          <Compass :size="20" class="text-primary" aria-hidden="true" />
-          <span class="text-sm">Curiosity, creativity, and continuous learning guide the work I do.</span>
-        </div>
       </div>
     </section>
 
@@ -192,11 +186,6 @@ onBeforeUnmount(() => {
             </a>
           </div>
         </article>
-      </div>
-
-      <div class="alert border border-primary/20 bg-primary/5 text-base-content">
-        <Award :size="20" class="text-primary" aria-hidden="true" />
-        <span class="text-sm">Each credential links to its verification page when one is available.</span>
       </div>
 
       <dialog v-if="selectedCertification" open class="modal modal-open" aria-modal="true" aria-labelledby="certificate-title" @click.self="closeModal">
