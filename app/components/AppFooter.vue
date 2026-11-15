@@ -2,35 +2,8 @@
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { siGithub } from 'simple-icons'
 import { MoveUp } from '@lucide/vue'
-
-const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="footer mt-14 flex flex-col items-center justify-between gap-4 border-t border-base-300 py-7 text-sm text-base-content/55 sm:flex-row">
-    <p>© {{ year }} John Kendrick Cabunilas. Built with Nuxt.</p>
-    <div class="flex items-center gap-4">
-      <a
-        href="https://www.linkedin.com/in/john-kendrick-58949b3a8"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="link-hover inline-flex items-center gap-2"
-        aria-label="LinkedIn profile (opens in a new tab)"
-      >
-        <BrandIcon :icon="faLinkedinIn" :size="17" /> LinkedIn
-      </a>
-      <a
-        href="https://github.com/kndcalex"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="link-hover inline-flex items-center gap-2"
-        aria-label="GitHub profile (opens in a new tab)"
-      >
-        <BrandIcon :icon="siGithub" :size="17" color="#f0f0f0" /> GitHub
-      </a>
-      <a href="#main-content" class="btn btn-ghost btn-circle btn-sm" aria-label="Back to top">
-        <MoveUp :size="16" aria-hidden="true" />
-      </a>
-    </div>
-  </footer>
+  <footer class="footer mt-14 border-t border-base-300 py-7" />
 </template>
